@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #42afad;
+        }
+
+        header {
+            text-align: center;
+            background-color: #42afad;
+            padding: 10px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 2;
+        }
+
+        #logo {
+            position: absolute;
+            top: 20px;
+            right: 30px; /* Adjusted to move slightly to the left */
+        }
+
+        #logo img {
+            border-radius: 50%;
+            border: 2px solid #fff;
+            width: 80px; /* Adjust as needed */
+            height: 60px; /* Adjust as needed */
+        }
+
+        #calculator {
+            text-align: center;
+            background-color: #383535;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(101, 225, 5, 0.1);
+            margin-top: 100px;
+        }
+
+        input {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 18px;
+            border: 1px solid #bc7a0f;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        button {
+            width: 50px;
+            height: 50px;
+            font-size: 18px;
+            margin: 5px;
+            cursor: pointer;
+            background-color: #787878;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        #display {
+            border: 2px solid #fdfdfd;
+            background: rgb(243, 243, 242);
+            color: rgb(0, 0, 0);
+            width: 240px;
+            border-radius: 10px;
+            height: 45px;
+            padding: 5px;
+            padding-right: 10px;
+            margin-top: 10px;
+            font-size: 25px;
+            text-align: right;
+            z-index: 1;
+        }
+
+        .footer-text a {
+            position: absolute;
+            margin-left: 12px;
+            text-decoration: none;
+            color: #000000;
+        }
+
+        button.clear {
+            background-color: #e74c3c;
+        }
+
+        button.plus {
+            background-color: #c7b817;
+        }
+        button.times {
+            background-color: #c7b817;
+        }
+        button.divide {
+            background-color: #c7b817;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="con">
+            <div class="name">
+                <h1 id="title0" style="font-size:48px;">Basic  Calculator</h1>
+            </div>
+            <div class="img" id="logo">
+                <img src="https://is2-ssl.mzstatic.com/image/thumb/Purple114/v4/9a/f0/8f/9af08f53-2e72-5c97-7018-1d6a7173a800/source/1000x1000bb.jpg" alt="Logo">
+            </div>
+        </div>
+    </header>
+
+    <div id="calculator">
+        <input type="text" id="display" readonly>
+        <br>
+        <button onclick="appendToDisplay('1')">1</button>
+        <button onclick="appendToDisplay('2')">2</button>
+        <button onclick="appendToDisplay('3')">3</button>
+        <button onclick="appendToDisplay('+')" class="Plus">+</button>
+        <br>
+        <button onclick="appendToDisplay('4')">4</button>
+        <button onclick="appendToDisplay('5')">5</button>
+        <button onclick="appendToDisplay('6')">6</button>
+        <button onclick="appendToDisplay('-')" class="plus">-</button>
+        <br>
+        <button onclick="appendToDisplay('7')">7</button>
+        <button onclick="appendToDisplay('8')">8</button>
+        <button onclick="appendToDisplay('9')">9</button>
+        <button onclick="appendToDisplay('*')" class="times">*</button>
+        <br>
+        <button onclick="appendToDisplay('0')">0</button>
+        <button onclick="clearDisplay()" class="clear">C</button>
+        <button onclick="appendToDisplay('/')" class="divide">/</button>
+        <button onclick="calculate()" class="plus">=</button>
+    </div>
+
+    <script>
+        function appendToDisplay(value) {
+            document.getElementById('display').value += value;
+        }
+
+        function calculate() {
+            try {
+                document.getElementById('display').value = eval(document.getElementById('display').value);
+            } catch (error) {
+                document.getElementById('display').value = 'Error';
+            }
+        }
+
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+    </script>
+
+    <footer class="footer">
+        <div class="footer-text">
+            <br>
+            <br>
+            <p style="text-align:100px;">Copyright &copy; 2024 | All Rights Reserved.</p>
+            <p style="text-align:30px;"><a href="mailto:sakethv29@gmail.com">Contact me: sakethv29@gmail.com</a></p>
+        </div>
+    </footer>
+</body>
+</html>
